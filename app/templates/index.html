@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3 class="cabezera">lista de tareas</h3>
+
+    <ul>
+        {% for tarea in tareas %}
+        <li>
+            {{ tarea }} <input id="chbx" class="cajita" type="checkbox" value="{{ tarea.id }}">
+        </li>
+        {% endfor %}
+        <button id="btn" class="boton" type="submit">Borrar</button>
+    </ul>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Agregar</button>
+    </form>
+
+    <script src="{% static 'JS/main.js' %}"></script>
+</body>
+
+</html>
